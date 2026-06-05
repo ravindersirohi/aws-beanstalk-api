@@ -2,51 +2,69 @@
     "Version": "2012-10-17",
     "Statement": [
         {
+            "Sid": "ElasticBeanstalkCore",
             "Effect": "Allow",
             "Action": [
-                "lambda:AddPermission",
-                "lambda:RemovePermission",
-                "lambda:CreateFunction",
-                "lambda:UpdateFunctionCode",
-                "lambda:UpdateFunctionConfiguration",
-                "lambda:DeleteFunction",
-                "lambda:GetFunction",
-                "lambda:GetFunctionConfiguration",
-                "lambda:ListFunctions",
-                "lambda:TagResource",
-                "lambda:UntagResource",
-                "lambda:ListVersionsByFunction",
-                "lambda:GetFunctionCodeSigningConfig",
-                "lambda:CreateFunctionUrlConfig",
-                "lambda:GetFunctionUrlConfig",
-                "lambda:UpdateFunctionUrlConfig",
-                "lambda:DeleteFunctionUrlConfig"
+                "elasticbeanstalk:*"
             ],
             "Resource": "*"
         },
         {
+            "Sid": "EC2AndAutoScaling",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:Describe*",
+                "ec2:CreateSecurityGroup",
+                "ec2:AuthorizeSecurityGroupIngress",
+                "ec2:AuthorizeSecurityGroupEgress",
+                "ec2:RevokeSecurityGroupIngress",
+                "ec2:RevokeSecurityGroupEgress",
+                "ec2:DeleteSecurityGroup",
+                "autoscaling:*",
+                "elasticloadbalancing:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "S3ForBeanstalk",
+            "Effect": "Allow",
+            "Action": [
+                "s3:CreateBucket",
+                "s3:PutBucketAcl",
+                "s3:PutBucketPolicy",
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:DeleteObject",
+                "s3:ListBucket"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "IAMRolesForBeanstalk",
             "Effect": "Allow",
             "Action": [
                 "iam:CreateRole",
                 "iam:DeleteRole",
+                "iam:UpdateAssumeRolePolicy",
+                "iam:CreateInstanceProfile",
+                "iam:DeleteInstanceProfile",
+                "iam:AddRoleToInstanceProfile",
+                "iam:RemoveRoleFromInstanceProfile",
                 "iam:AttachRolePolicy",
                 "iam:DetachRolePolicy",
-                "iam:PutRolePolicy",
-                "iam:DeleteRolePolicy",
-                "iam:GetRole",
-                "iam:PassRole",
-                "iam:ListRolePolicies",
-                "iam:ListAttachedRolePolicies",
-                "iam:ListInstanceProfilesForRole"
+                "iam:PassRole"
             ],
-            "Resource": "arn:aws:iam::{{aws_account_id}}:role/*"
+            "Resource": "*"
         },
         {
+            "Sid": "CloudWatchLogs",
             "Effect": "Allow",
             "Action": [
                 "logs:CreateLogGroup",
                 "logs:CreateLogStream",
-                "logs:PutLogEvents"
+                "logs:PutLogEvents",
+                "logs:DescribeLogGroups",
+                "logs:DescribeLogStreams"
             ],
             "Resource": "*"
         }
