@@ -8,5 +8,5 @@ variable "region" {
 
 variable "app" {
   description = "Enter the name of the app (lower case characters only)"
-  default     = "demo"
+  default     = "testapp"
 }
