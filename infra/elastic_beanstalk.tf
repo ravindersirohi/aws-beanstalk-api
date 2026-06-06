@@ -1,8 +1,8 @@
 resource "aws_elastic_beanstalk_environment" "env" {
   name                = "${var.app}-api-env"
   application         = aws_elastic_beanstalk_application.app.name
-  solution_stack_name = "64bit Amazon Linux 2 v3.5.2 running Docker"
-  
+  solution_stack_name = "64bit Amazon Linux 2 v3.8.0 running Docker"
+
   depends_on = [ 
     aws_iam_instance_profile.ec2_profile 
   ]
