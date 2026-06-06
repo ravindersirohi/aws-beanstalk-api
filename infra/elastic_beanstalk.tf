@@ -4,7 +4,8 @@ resource "aws_elastic_beanstalk_environment" "env" {
   solution_stack_name = "64bit Amazon Linux 2023 v4.13.1 running Docker"
 
   depends_on = [
-    aws_iam_instance_profile.ec2_profile
+    aws_iam_instance_profile.ec2_profile,
+    aws_iam_role.eb_service_role
   ]
 
   setting {
@@ -19,6 +20,11 @@ resource "aws_elastic_beanstalk_environment" "env" {
     value     = aws_iam_instance_profile.ec2_profile.name
   }
 
+  setting {
+    namespace = "aws:elasticbeanstalk:environment"
+    name      = "ServiceRole"
+    value     = aws_iam_role.eb_service_role.name
+  }
   setting {
     namespace = "aws:elasticbeanstalk:environment"
     name      = "EnvironmentType"
