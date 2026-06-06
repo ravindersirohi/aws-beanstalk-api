@@ -1,16 +1,16 @@
 resource "aws_elastic_beanstalk_environment" "env" {
-  name                = "${var.app}_api_env"
+  name                = "${var.app}-api-env"
   application         = aws_elastic_beanstalk_application.app.name
   solution_stack_name = "64bit Amazon Linux 2023 v4.13.1 running Docker"
 
-  depends_on = [ 
-    aws_iam_instance_profile.ec2_profile 
+  depends_on = [
+    aws_iam_instance_profile.ec2_profile
   ]
 
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
     name      = "InstanceType"
-    value     = "t3.micro"   # free-tier eligible
+    value     = "t3.micro" # free-tier eligible
   }
 
   setting {
