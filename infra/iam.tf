@@ -45,4 +45,3 @@ resource "aws_iam_role_policy_attachment" "eb_service_role_health" {
   role       = aws_iam_role.eb_service_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkEnhancedHealth"
 }
-
