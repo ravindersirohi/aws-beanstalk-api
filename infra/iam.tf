@@ -46,8 +46,3 @@ resource "aws_iam_role_policy_attachment" "eb_service_role_health" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkEnhancedHealth"
 }
 
-resource "aws_iam_role_policy_attachment" "autoscaling_slr_policy" {
-  role       = "AWSServiceRoleForAutoScaling"
-  policy_arn = "arn:aws:iam::aws:policy/aws-service-role/AutoScalingServiceRolePolicy"
-}
-
