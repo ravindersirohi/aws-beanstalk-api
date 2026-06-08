@@ -1,6 +1,6 @@
 # AWS Beanstalk API Infrastructure
 
-Infrastructure-as-Code project for deploying a .NET Core API on AWS Elastic Beanstalk using Terraform.
+Infrastructure-as-Code project for deploying a containerized Web app or API on AWS Elastic Beanstalk using Terraform.
 
 ## Overview
 
@@ -103,6 +103,11 @@ Terraform state is stored in an S3 backend with encryption enabled. Ensure the b
 - Review IAM policies regularly to maintain least-privilege access
 - Use GitHub Actions with OIDC provider for CI/CD authentication
 - Enable Terraform state locking with DynamoDB for team environments
+
+## References
+
+- [AWS Elastic Beanstalk Documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html)
+ - [Terraform Documentation](https://developer.hashicorp.com/terraform)
 
 ## Contributing
 
