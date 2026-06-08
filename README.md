@@ -6,6 +6,11 @@ Infrastructure-as-Code project for deploying a containerized Web app or API on A
 
 This repository contains Terraform configurations to provision and manage an AWS Elastic Beanstalk application environment. It includes IAM policies for GitHub Actions OIDC integration and Terraform state management.
 
+## Architecture Diagram
+
+- The `infra-architecture.png` file contains a high-level diagram of the Elastic Beanstalk environment and related AWS resources. View it directly in this repository or open the file in your editor.
+- ![Infrastructure Architecture](infra-architecture.png)
+
 ## Project Structure
 
 ```
@@ -130,11 +135,6 @@ Terraform state is stored in an S3 backend with encryption enabled. Ensure the b
 - Backend: `terraform init` reads S3 backend settings from repository secrets (`AWS_BUCKET_NAME`, `AWS_BUCKET_KEY_NAME`, etc.).
 
 Refer to the workflow file for exact steps and environment variables.
-
-## Architecture Diagram
-
-- The `infra-architecture.png` file contains a high-level diagram of the Elastic Beanstalk environment and related AWS resources. View it directly in this repository or open the file in your editor.
-- ![Infrastructure Architecture](infra-architecture.png)
 
 ## References
 
